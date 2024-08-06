@@ -132,59 +132,45 @@ Estrutura de aplicação web para cadastrar produtos com seleção de categoria 
 ---
 ## Métodos 
 
-1. **mysqli:** Este objeto representa a conexão com o banco de dados MySQL, fornecendo uma interface rica com diversos métodos e propriedades para facilitar a interação com os dados.
+## Métodos PHP
+ 
+### `mysqli`
 
-´´´
-Criando uma nova conexão com o banco de dados 
-$servername = "localhost";
-$username = "username";
-$password = "password";
-$database = "myDatabase";
+1. mysqli: Este objeto representa a conexão com o banco de dados MySQL, fornecendo uma interface rica com diversos métodos e propriedades para facilitar a interação com os dados.
 
-$conn = new mysqli($servername, $username, $password, $database);
+### `mysqli_query`
 
-  Verificando se a conexão foi bem-sucedida
-if ($conn->connect_error) {
-    die("Erro de conexão: " . $conn->connect_error);
-}
-´´´
+2. mysqli_query: Este método é utilizado para executar consultas SQL no banco de dados, permitindo a manipulação e recuperação de dados conforme necessário.
 
-2. **mysqli_query:** Este método é utilizado para executar consultas SQL no banco de dados, permitindo a manipulação e recuperação de dados conforme necessário.
-
-´´´
-Executando uma consulta SQL
-$sql = "SELECT id, name FROM users";
-$result = $conn->query($sql);
-
- Verificando se a consulta retornou resultados
-if ($result->num_rows > 0) {
-    Saindo os dados de cada linha
-    while($row = $result->fetch_assoc()) {
-        echo "id: " . $row["id"]. " - Nome: " . $row["name"]. "<br>";
+- **Exemplo de uso**:
+    ```php
+    $result = mysqli_query($conn, $sql);
+    if ($result) {
+        // Processar os resultados
+    } else {
+        echo "Erro: " . mysqli_error($conn);
     }
-} else {
-    echo "0 resultados";
-}
-´´´
-3. **mysqli_close:** Este método encerra a conexão previamente estabelecida com o banco de dados, liberando os recursos associados a ela.
+    ```
+ 
+### `mysqli_close`
+ 
+3. mysqli_close: Este método encerra a conexão previamente estabelecida com o banco de dados, liberando os recursos associados a ela.
 
-´´´
-Encerrando a conexão com o banco de dados
-$conn->close();
-echo "Conexão encerrada com sucesso.";
+- **Exemplo de uso**:
+    ```php
+    mysqli_close($conn);
+    ```
+ 
+### `mysqli_error`
+ 
+4. mysqli_error: Este método retorna uma string que descreve o erro mais recente ocorrido durante uma operação com MySQLi, ajudando na identificação e solução de problemas.
 
-4. **mysqli_error:** Este método retorna uma string que descreve o erro mais recente ocorrido durante uma operação com MySQLi, ajudando na identificação e solução de problemas.
-
-´´´
-Executando uma consulta SQL com erro para ilustrar o uso de mysqli_error
-$sql = "SELECT * FROM non_existent_table"; Tabela que não existe
-$result = $conn->query($sql);
-
-if (!$result) {
-    echo "Erro na consulta: " . $conn->error; Exibindo a mensagem de erro
-}
-
-´´´
+- **Exemplo de uso**:
+    ```php
+    if (!$result) {
+        echo "Erro: " . mysqli_error($conn);
+    }
+    ```
 ## Imagens dos Trabalhos
 Abaixo, algumas imagens do projeto com as realizações descritas anteriormente.
 
