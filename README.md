@@ -134,11 +134,11 @@ Estrutura de aplicação web para cadastrar produtos com seleção de categoria 
 
 ## Métodos PHP
  
-### `mysqli`
+### mysqli
 
 1. mysqli: Este objeto representa a conexão com o banco de dados MySQL, fornecendo uma interface rica com diversos métodos e propriedades para facilitar a interação com os dados.
 
-### `mysqli_query`
+### mysqli_query
 
 2. mysqli_query: Este método é utilizado para executar consultas SQL no banco de dados, permitindo a manipulação e recuperação de dados conforme necessário.
 
@@ -152,7 +152,7 @@ Estrutura de aplicação web para cadastrar produtos com seleção de categoria 
     }
     ```
  
-### `mysqli_close`
+### mysqli_close
  
 3. mysqli_close: Este método encerra a conexão previamente estabelecida com o banco de dados, liberando os recursos associados a ela.
 
@@ -161,7 +161,7 @@ Estrutura de aplicação web para cadastrar produtos com seleção de categoria 
     mysqli_close($conn);
     ```
  
-### `mysqli_error`
+### mysqli_error
  
 4. mysqli_error: Este método retorna uma string que descreve o erro mais recente ocorrido durante uma operação com MySQLi, ajudando na identificação e solução de problemas.
 
