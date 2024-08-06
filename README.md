@@ -1,15 +1,16 @@
 # CadEcommerce
+Projeto realizado em aula da matéria Programação Web. 
+
 ## Estrutura
  
 - **HTML**: Layout da página.
-- **CSS**: Estilos da página.
 - **JavaScript**: Funcionalidades interativas.
 - **PHP**: Backend para produtos e carrinho.
  
 ## Arquivos
  
 1. `index.php`: Página do carrinho.
-2. `css/style.css`: Estilos.
+2. `style.css`: Estilos.
 3. `js/jquery-2.1.4.min.js`: jQuery.
 4. `js/script.js`: Scripts personalizados.
 5. `controller/carrinho-busca.php`: Busca de produtos.
@@ -19,7 +20,6 @@
 1. Clone o repositório.
 2. Use um servidor web com PHP.
 3. Coloque os arquivos no servidor.
-4. Acesse `index.php`.
  
 ---
  
@@ -30,21 +30,19 @@ Aplicação web para cadastrar categorias. Utiliza HTML, CSS e PHP.
 ## Estrutura
  
 - **HTML**: Layout do formulário.
-- **CSS**: Estilos da página.
+- **STYLE**: Estilos da página.
 - **PHP**: Processa o cadastro.
  
-## Arquivos
- 
-1. `index.php`: Formulário de cadastro.
-2. `css/style.css`: Estilos.
-3. `insere-categoria.php`: Cadastro de categoria.
+## Arquivos 
+
+1. `css/style.css`: Estilos.
+2. `insere-categoria.php`: Cadastro de categoria.
  
 ## Execução
  
 1. Clone o repositório.
 2. Use um servidor web com PHP.
 3. Coloque os arquivos no servidor.
-4. Acesse `index.php`.
  
 ---
  
@@ -73,8 +71,6 @@ Aplicação web para gerenciar pedidos de compra. Utiliza HTML, CSS, JavaScript 
 1. Clone o repositório.
 2. Use um servidor web com PHP.
 3. Coloque os arquivos no servidor.
-4. Acesse `index.php`.
- 
 ---
  
 # Projeto: Cadastro de Marcas
@@ -153,3 +149,4 @@ Aplicação web para cadastrar produtos com seleção de categoria e marca. Util
 2. Use um servidor web com PHP e MySQL.
 3. Coloque os arquivos no servidor e configure o banco de dados.
 4. Acesse `index.php`.
+
