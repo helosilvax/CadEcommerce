@@ -21,49 +21,8 @@ Estrutura de genreciamento web para um carrinho para compras.
 4. `js/script.js`: Scripts personalizados.
 5. `controller/carrinho-busca.php`: Busca de produtos.
  
-#### Métodos PHP
- 
-- `index.php`: Gerencia a sessão do carrinho, adiciona e remove produtos.
- 
-    ```php
-    <?php
-    session_start();
-    if (!isset($_SESSION['cart'])) {
-        $_SESSION['cart'] = array();
-    }
- 
-    if (isset($_POST['add_to_cart'])) {
-        $product_id = $_POST['product_id'];
-        if (!in_array($product_id, $_SESSION['cart'])) {
-            $_SESSION['cart'][] = $product_id;
-        }
-    }
- 
-    if (isset($_POST['remove_from_cart'])) {
-        $product_id = $_POST['product_id'];
-        if (($key = array_search($product_id, $_SESSION['cart'])) !== false) {
-            unset($_SESSION['cart'][$key]);
-        }
-    }
-    ?>
-    ```
- 
-- `controller/carrinho-busca.php`: Simula a busca de produtos.
- 
-    ```php
-    <?php
-    $products = array(
-        array("id" => 1, "name" => "Produto 1", "price" => 10.0),
-        array("id" => 2, "name" => "Produto 2", "price" => 20.0),
-        array("id" => 3, "name" => "Produto 3", "price" => 30.0)
-    );
- 
-    echo json_encode($products);
-    ?>
-    ```
- 
 #### Execução
- 
+
 1. Clone o repositório.
 2. Use um servidor web com PHP.
 3. Coloque os arquivos no servidor.
@@ -80,31 +39,7 @@ Estrutura de aplicação web para cadastrar categorias.
 1. `index.php`: Formulário de cadastro.
 2. `css/style.css`: Estilos.
 3. `insere-categoria.php`: Cadastro de categoria.
- 
-#### Métodos PHP
- 
-- `insere-categoria.php`: Insere uma nova categoria no banco de dados.
- 
-    ```php
-    <?php
-    include('controller/conexao.php');
- 
-    $descricao = $_POST['descricao'];
- 
-    echo "<h3>Descrição: $descricao </h3><br>";
- 
-    $cad_categoria = "INSERT INTO categoria(DESCRICAO) VALUES ('$descricao')";
- 
-    if (mysqli_query($mysqli, $cad_categoria)) {
-        echo "<h1>Nova categoria cadastrada com sucesso</h1></br>";
-    } else {
-        echo "Erro: " . $cad_categoria . "</br>" . mysqli_error($mysqli);
-    }
- 
-    mysqli_close($mysqli);
-    ?>
-    ```
- 
+  
 #### Execução
  
 1. Clone o repositório.
@@ -127,52 +62,6 @@ Estrutura de aplicação web para gerenciar pedidos de compra.
 5. `controller/produtos-busca.php`: Busca de produtos.
 6. `carrinho.php`: Página do carrinho.
  
-#### Métodos PHP
- 
-- `controller/produtos-busca.php`: Simula a busca de produtos.
- 
-    ```php
-    <?php
-    $products = array(
-        array("id" => 1, "name" => "Produto 1", "price" => 10.0),
-        array("id" => 2, "name" => "Produto 2", "price" => 20.0),
-        array("id" => 3, "name" => "Produto 3", "price" => 30.0)
-    );
- 
-    echo json_encode($products);
-    ?>
-    ```
- 
-- `carrinho.php`: Exibe os produtos no carrinho.
- 
-    ```php
-    <?php
-    session_start();
-    if (!isset($_SESSION['cart'])) {
-        $_SESSION['cart'] = array();
-    }
-    ?>
- 
-    <!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <title>Carrinho de Compras</title>
-        <link rel="stylesheet" href="css/style.css">
-    </head>
-    <body>
-        <h1>Carrinho de Compras</h1>
-        <ul>
-            <?php
-            foreach ($_SESSION['cart'] as $product_id) {
-                echo "<li>Produto ID: $product_id</li>";
-            }
-            ?>
-        </ul>
-    </body>
-    </html>
-    ```
- 
 #### Execução
  
 1. Clone o repositório.
@@ -191,38 +80,6 @@ Estrutura de aplicação web para cadastrar marcas.
 1. `index.php`: Formulário de cadastro.
 2. `css/style.css`: Estilos.
 3. `insere-marca.php`: Cadastro de marca.
- 
-#### Métodos PHP
- 
-- `insere-marca.php`: Insere uma nova marca no banco de dados.
- 
-    ```php
-    <?php
-    $servername = "localhost";
-    $username = "root";
-    $password = "";
-    $dbname = "meu_banco";
- 
-    $conn = new mysqli($servername, $username, $password, $dbname);
- 
-    if ($conn->connect_error) {
-        die("Conexão falhou: " . $conn->connect_error);
-    }
- 
-    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-        $marca = $_POST['marca'];
- 
-        $sql = "INSERT INTO marcas (nome) VALUES ('$marca')";
-        if ($conn->query($sql) === TRUE) {
-            echo "Marca cadastrada com sucesso!";
-        } else {
-            echo "Erro: " . $sql . "<br>" . $conn->error;
-        }
-    }
- 
-    $conn->close();
-    ?>
-    ```
  
 #### Execução
  
@@ -245,26 +102,6 @@ Estrutura de aplicação web para mostrar o resumo de um pedido.
 4. `js/script.js`: Scripts personalizados.
 5. `controller/produtos-resumo.php`: Resumo do pedido.
  
-#### Métodos PHP
- 
-- `controller/produtos-resumo.php`: Gera o resumo do pedido baseado nos itens do carrinho.
- 
-    ```php
-    <?php
-    session_start();
-    $order_summary = array();
- 
-    if (isset($_SESSION['cart'])) {
-        foreach ($_SESSION['cart'] as $product_id) {
-            $product = array("id" => $product_id, "name" => "Produto $product_id", "price" => $product_id * 10);
-            $order_summary[] = $product;
-        }
-    }
- 
-    echo json_encode($order_summary);
-    ?>
-    ```
- 
 #### Execução
  
 1. Clone o repositório.
@@ -285,57 +122,24 @@ Estrutura de aplicação web para cadastrar produtos com seleção de categoria 
 3. `insere-produto.php`: Inserção de produto.
 4. `controller/conexao.php`: Conexão com o banco de dados.
  
-#### Métodos PHP
- 
-- `controller/conexao.php`: Estabelece a conexão com o banco de dados.
- 
-    ```php
-    <?php
-    $servername = "localhost";
-    $username = "root";
-    $password = "";
-    $dbname = "meu_banco";
- 
-    $conn = new mysqli($servername, $username, $password, $dbname);
- 
-    if ($conn->connect_error) {
-        die("Conexão falhou: " . $conn->connect_error);
-    }
-    ?>
-    ```
- 
-- `insere-produto.php`: Insere um novo produto no banco de dados.
- 
-    ```php
-    <?php
-    include 'controller/conexao.php';
- 
-    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-        $produto = $_POST['produto'];
-        $categoria = $_POST['categoria'];
-        $marca = $_POST['marca'];
- 
-        $sql = "INSERT INTO produtos (nome, categoria_id, marca_id) VALUES ('$produto', '$categoria', '$marca')";
-        if ($conn->query($sql) === TRUE) {
-            echo "Produto cadastrado com sucesso!";
-        } else {
-            echo "Erro: " . $sql . "<br>" . $conn->error;
-        }
-    }
- 
-    $conn->close();
-    ?>
-    ```
- 
 #### Execução
- 
+
 1. Clone o repositório.
 2. Use um servidor web com PHP e MySQL.
 3. Coloque os arquivos no servidor e configure o banco de dados.
 4. Acesse `index.php`.
  
 ---
- 
+## Métodos 
+
+1. mysqli: Este objeto representa a conexão com o banco de dados MySQL, fornecendo uma interface rica com diversos métodos e propriedades para facilitar a interação com os dados.
+
+2. mysqli_query: Este método é utilizado para executar consultas SQL no banco de dados, permitindo a manipulação e recuperação de dados conforme necessário.
+
+3. mysqli_close: Este método encerra a conexão previamente estabelecida com o banco de dados, liberando os recursos associados a ela.
+
+4. mysqli_error: Este método retorna uma string que descreve o erro mais recente ocorrido durante uma operação com MySQLi, ajudando na identificação e solução de problemas.
+
 ## Imagens dos Trabalhos
 Abaixo, algumas imagens do projeto com as realizações descritas anteriormente.
 
