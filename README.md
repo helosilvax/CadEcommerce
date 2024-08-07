@@ -190,6 +190,14 @@ Abaixo, algumas imagens do projeto com as realizações descritas anteriormente.
 
 ![Captura de tela 2024-08-06 082836](https://github.com/user-attachments/assets/3b46a2f8-dcf9-49e7-b192-4ce30571d9ff)
 
+## Fonte consultadas
+-[O que são os métodos PHP] https://www.php.net
+
+## Autores
+- Heloise Ribeiro
+- Leonardo Rocha
+
+
 
 
 
