@@ -176,6 +176,23 @@ Abaixo, algumas imagens do projeto com as realizações descritas anteriormente.
 
 ### Pedido de Compra
 
+![Captura de tela 2024-08-06 082555](https://github.com/user-attachments/assets/af3a9fdd-8fd1-4d0b-ba16-8b90946ee1f8)
+
+### Cadastro de marcas
+
+![Captura de tela 2024-08-06 083114](https://github.com/user-attachments/assets/51fd9040-6cd7-4336-a983-807335be61da)
+
+### Cadastro de categorias 
+
+![Captura de tela 2024-08-06 083344](https://github.com/user-attachments/assets/1451d9a2-02e1-4503-8440-d661cd4e2ece)
+
+### Base de dados
+
+![Captura de tela 2024-08-06 082836](https://github.com/user-attachments/assets/3b46a2f8-dcf9-49e7-b192-4ce30571d9ff)
+
+
+
+
  
 
 
